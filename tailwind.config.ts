@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -38,7 +39,33 @@ const config: Config = {
         'subtle': '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05)',
         'card': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05)',
         'elevated': '0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -4px rgba(0, 0, 0, 0.04)',
-      }
+        'glow-brand': '0 0 25px -5px rgba(58, 128, 179, 0.3)',
+        'glow-amber': '0 0 25px -5px rgba(251, 191, 36, 0.3)',
+      },
+      animation: {
+        'orbit-slow': 'orbitSpin 60s linear infinite',
+        'orbit-reverse': 'orbitSpinReverse 75s linear infinite',
+        'float-slow': 'floatGentle 8s ease-in-out infinite',
+        'pulse-subtle': 'pulseSubtle 5s ease-in-out infinite',
+      },
+      keyframes: {
+        orbitSpin: {
+          'from': { transform: 'rotate(0deg)' },
+          'to': { transform: 'rotate(360deg)' },
+        },
+        orbitSpinReverse: {
+          'from': { transform: 'rotate(360deg)' },
+          'to': { transform: 'rotate(0deg)' },
+        },
+        floatGentle: {
+          '0%, 100%': { transform: 'translateY(0px) scale(1)' },
+          '50%': { transform: 'translateY(-12px) scale(1.03)' },
+        },
+        pulseSubtle: {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '0.85' },
+        },
+      },
     },
   },
   plugins: [],

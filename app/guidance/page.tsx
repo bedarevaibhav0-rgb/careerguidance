@@ -11,6 +11,7 @@ import {
   GraduationCap, 
   HelpCircle, 
   Compass, 
+  Orbit,
   RotateCcw,
   BookOpen
 } from 'lucide-react';
@@ -149,23 +150,23 @@ How can I help you navigate your academic future today?`,
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-6">
       
       {/* Header Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200 dark:border-slate-800">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-50 text-brand-900 text-xs font-semibold border border-brand-200">
-            <Compass className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-50 dark:bg-brand-950/70 text-brand-900 dark:text-brand-300 text-xs font-semibold border border-brand-200 dark:border-brand-700/50">
+            <Orbit className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
             <span>Academic Counseling Service</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Personalized Guidance Advisor
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
             Ask questions regarding course choices, dilemmas between disciplines, and career entry pathways.
           </p>
         </div>
 
         <button
           onClick={handleResetConversation}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 self-start sm:self-auto py-1.5 px-3 rounded-lg border border-slate-300 hover:bg-slate-50 transition-colors shadow-sm"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white self-start sm:self-auto py-1.5 px-3 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>New Conversation</span>
@@ -174,7 +175,7 @@ How can I help you navigate your academic future today?`,
 
       {/* Preset Common Inquiries Chips */}
       <div className="space-y-2">
-        <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+        <div className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
           Suggested Inquiries:
         </div>
         <div className="flex flex-wrap gap-2">
@@ -183,7 +184,7 @@ How can I help you navigate your academic future today?`,
               key={i}
               onClick={() => handleSendMessage(question)}
               disabled={loading}
-              className="text-left text-xs font-medium bg-white hover:bg-slate-50 text-slate-700 hover:text-brand-900 px-3 py-1.5 rounded-lg border border-slate-200 shadow-subtle transition-colors"
+              className="text-left text-xs font-medium bg-white/90 dark:bg-slate-900/85 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-900 dark:hover:text-white px-3 py-1.5 rounded-lg border border-slate-200/90 dark:border-slate-800 shadow-subtle transition-colors"
             >
               &ldquo;{question}&rdquo;
             </button>
@@ -192,7 +193,7 @@ How can I help you navigate your academic future today?`,
       </div>
 
       {/* Main Conversation Window */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col h-[560px]">
+      <div className="bg-white/90 dark:bg-slate-900/85 backdrop-blur-md rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm flex flex-col h-[560px]">
         
         {/* Messages Feed */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
@@ -206,10 +207,10 @@ How can I help you navigate your academic future today?`,
                 {/* Avatar Icon */}
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-xs font-bold ${
                   isCounselor 
-                    ? 'bg-brand-900 text-white' 
-                    : 'bg-slate-200 text-slate-700'
+                    ? 'bg-brand-900 dark:bg-brand-600 text-white shadow-sm' 
+                    : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200'
                 }`}>
-                  {isCounselor ? <Compass className="w-4 h-4 text-amber-400" /> : 'You'}
+                  {isCounselor ? <Orbit className="w-4 h-4 text-amber-400" /> : 'You'}
                 </div>
 
                 {/* Message Bubble */}
@@ -217,8 +218,8 @@ How can I help you navigate your academic future today?`,
                   <div
                     className={`rounded-2xl p-4 text-sm leading-relaxed ${
                       isCounselor
-                        ? 'bg-slate-50 text-slate-800 border border-slate-200/90'
-                        : 'bg-brand-900 text-white shadow-sm'
+                        ? 'bg-slate-50 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200 border border-slate-200/90 dark:border-slate-700/80'
+                        : 'bg-brand-900 dark:bg-brand-600 text-white shadow-sm'
                     }`}
                   >
                     <div className="whitespace-pre-line">
@@ -229,7 +230,7 @@ How can I help you navigate your academic future today?`,
                   {/* Matched Careers Cards (When Counselor recommends pathways) */}
                   {msg.matchedCareers && msg.matchedCareers.length > 0 && (
                     <div className="space-y-2 pt-1">
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                         Relevant Directory Profiles:
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -237,17 +238,17 @@ How can I help you navigate your academic future today?`,
                           <Link
                             key={c.id}
                             href={`/careers/${c.id}`}
-                            className="p-3 rounded-lg border border-slate-200 bg-white hover:border-brand-300 hover:bg-brand-50/40 transition-colors flex items-center justify-between group"
+                            className="p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-brand-300 dark:hover:border-brand-500/60 hover:bg-brand-50/40 dark:hover:bg-brand-950/40 transition-colors flex items-center justify-between group"
                           >
                             <div className="truncate pr-2">
-                              <span className="text-[10px] uppercase font-semibold text-slate-400 block">
+                              <span className="text-[10px] uppercase font-semibold text-slate-400 dark:text-slate-500 block">
                                 {c.category}
                               </span>
-                              <span className="text-xs font-bold text-slate-900 group-hover:text-brand-900 truncate block">
+                              <span className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-brand-900 dark:group-hover:text-brand-400 truncate block">
                                 {c.title}
                               </span>
                             </div>
-                            <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-900 shrink-0" />
+                            <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-900 dark:group-hover:text-brand-400 shrink-0" />
                           </Link>
                         ))}
                       </div>
@@ -262,7 +263,7 @@ How can I help you navigate your academic future today?`,
                           key={sIdx}
                           onClick={() => handleSendMessage(suggestion)}
                           disabled={loading}
-                          className="text-[11px] font-semibold text-brand-900 bg-brand-50 hover:bg-brand-100 border border-brand-200 px-2.5 py-1 rounded-full transition-colors"
+                          className="text-[11px] font-semibold text-brand-900 dark:text-brand-300 bg-brand-50 dark:bg-brand-950/80 hover:bg-brand-100 dark:hover:bg-brand-900 border border-brand-200 dark:border-brand-700/60 px-2.5 py-1 rounded-full transition-colors"
                         >
                           {suggestion}
                         </button>
@@ -270,7 +271,7 @@ How can I help you navigate your academic future today?`,
                     </div>
                   )}
 
-                  <div className={`text-[10px] text-slate-400 ${isCounselor ? 'text-left' : 'text-right'}`}>
+                  <div className={`text-[10px] text-slate-400 dark:text-slate-500 ${isCounselor ? 'text-left' : 'text-right'}`}>
                     {msg.timestamp}
                   </div>
                 </div>
@@ -281,10 +282,10 @@ How can I help you navigate your academic future today?`,
           {/* Loading Indicator */}
           {loading && (
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-brand-900 text-white flex items-center justify-center shrink-0">
-                <Compass className="w-4 h-4 text-amber-400 animate-spin" />
+              <div className="w-8 h-8 rounded-full bg-brand-900 dark:bg-brand-600 text-white flex items-center justify-center shrink-0">
+                <Orbit className="w-4 h-4 text-amber-400 animate-spin" />
               </div>
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-xs font-medium text-slate-500">
+              <div className="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl px-4 py-3 text-xs font-medium text-slate-500 dark:text-slate-400">
                 Reviewing academic pathways and preparing guidance...
               </div>
             </div>
@@ -299,7 +300,7 @@ How can I help you navigate your academic future today?`,
             e.preventDefault();
             handleSendMessage(inputQuery);
           }}
-          className="p-3 sm:p-4 border-t border-slate-200 bg-slate-50/50 rounded-b-2xl flex items-center gap-2"
+          className="p-3 sm:p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/60 rounded-b-2xl flex items-center gap-2"
         >
           <input
             type="text"
@@ -307,15 +308,15 @@ How can I help you navigate your academic future today?`,
             onChange={(e) => setInputQuery(e.target.value)}
             placeholder="Type your question (e.g., 'What can I study with biology and math?')..."
             disabled={loading}
-            className="flex-1 bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-900"
+            className="flex-1 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-colors"
           />
           <button
             type="submit"
             disabled={!inputQuery.trim() || loading}
             className={`p-2.5 rounded-xl font-bold transition-colors shrink-0 ${
               inputQuery.trim() && !loading
-                ? 'bg-brand-900 text-white hover:bg-brand-800 shadow-sm'
-                : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                ? 'bg-brand-900 dark:bg-brand-600 text-white hover:bg-brand-800 dark:hover:bg-brand-500 shadow-sm'
+                : 'bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-600 cursor-not-allowed'
             }`}
             title="Send query"
           >

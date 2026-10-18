@@ -4,8 +4,25 @@
 
 @layer base {
   :root {
-    --background: 248 250 252; /* #F8FAFC */
-    --foreground: 15 23 42;    /* #0F172A */
+    --background: #F8FAFC;
+    --foreground: #0F172A;
+    --surface: #FFFFFF;
+    --surface-border: #E2E8F0;
+    --heading: #0F2942;
+    --muted: #64748B;
+  }
+
+  .dark {
+    --background: #090E1A;
+    --foreground: #F1F5F9;
+    --surface: #0F172A;
+    --surface-border: #1E293B;
+    --heading: #F8FAFC;
+    --muted: #94A3B8;
+  }
+
+  html {
+    color-scheme: light dark;
   }
 
   body {
@@ -15,12 +32,28 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .dark body {
+    color: #F1F5F9;
+    background-color: #090E1A;
   }
 
   h1, h2, h3, h4, h5, h6 {
     color: #0F2942;
     letter-spacing: -0.02em;
     font-weight: 700;
+    transition: color 0.2s ease;
+  }
+
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    color: #F8FAFC;
   }
 }
 
@@ -34,13 +67,54 @@
   background: #F1F5F9;
 }
 
+.dark ::-webkit-scrollbar-track {
+  background: #0B1120;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #CBD5E1;
   border-radius: 4px;
 }
 
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Cosmic grid & ambient background effect utilities */
+.cosmic-grid-light {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.18) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+.cosmic-grid-dark {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(148, 191, 220, 0.12) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+/* Glassmorphism surfaces */
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-panel-dark {
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 41, 59, 0.85);
 }
 
 /* Print styling for assessment reports and roadmaps */

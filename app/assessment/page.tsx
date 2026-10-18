@@ -90,10 +90,10 @@ export default function AssessmentPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8 print-page">
         
         {/* Report Actions Toolbar (Hidden on print) */}
-        <div className="no-print flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+        <div className="no-print flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200 dark:border-slate-800">
           <Link 
             href="/careers" 
-            className="text-xs font-semibold text-slate-600 hover:text-slate-900 inline-flex items-center gap-1.5"
+            className="text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white inline-flex items-center gap-1.5"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Return to Career Explorer</span>
@@ -102,14 +102,14 @@ export default function AssessmentPage() {
           <div className="flex items-center gap-3">
             <button
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
             >
-              <Printer className="w-3.5 h-3.5 text-slate-500" />
+              <Printer className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
               <span>Print / Save PDF</span>
             </button>
             <button
               onClick={handleRetake}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition-colors shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 dark:bg-brand-600 text-white text-xs font-bold hover:bg-slate-800 dark:hover:bg-brand-500 transition-colors shadow-sm"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Retake Assessment</span>
@@ -118,30 +118,30 @@ export default function AssessmentPage() {
         </div>
 
         {/* Professional Assessment Report Header */}
-        <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 space-y-6 shadow-sm">
+        <div className="bg-white/90 dark:bg-slate-900/85 backdrop-blur-md rounded-2xl border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 space-y-6 shadow-sm">
           
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100 dark:border-slate-800">
             <div>
-              <div className="text-xs font-bold uppercase tracking-wider text-brand-700 mb-1">
+              <div className="text-xs font-bold uppercase tracking-wider text-brand-700 dark:text-brand-400 mb-1">
                 Confidential Educational Evaluation
               </div>
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                 Career Aptitude Assessment Report
               </h1>
-              <p className="text-xs text-slate-500 mt-1">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                 Generated on {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} • Candidate Aptitude Profile
               </p>
             </div>
 
             <div className="shrink-0 text-left sm:text-right">
-              <span className="inline-block px-3 py-1 bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold rounded-md">
+              <span className="inline-block px-3 py-1 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 text-xs font-bold rounded-md">
                 Deterministic Multi-Trait Scoring
               </span>
             </div>
           </div>
 
           {/* Primary Top Match Highlight Card */}
-          <div className="bg-gradient-to-br from-brand-900 to-slate-900 text-white rounded-xl p-6 sm:p-8 space-y-6 shadow-elevated">
+          <div className="bg-gradient-to-br from-brand-900 via-slate-900 to-slate-950 dark:from-brand-950 dark:via-slate-900 dark:to-[#0B1120] border border-brand-800/80 dark:border-slate-800 text-white rounded-2xl p-6 sm:p-8 space-y-6 shadow-elevated">
             
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
@@ -203,29 +203,29 @@ export default function AssessmentPage() {
           {/* Suggested Education Path & Skills */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
             
-            <div className="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2">
-              <div className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
-                <GraduationCap className="w-4 h-4 text-brand-800" />
+            <div className="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-xl border border-slate-200 dark:border-slate-700/80 space-y-2">
+              <div className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <GraduationCap className="w-4 h-4 text-brand-700 dark:text-brand-400" />
                 <span>Suggested Education Pathway</span>
               </div>
-              <p className="text-sm font-semibold text-slate-900">
+              <p className="text-sm font-semibold text-slate-900 dark:text-white">
                 {topCareer.suggestedEducationPath}
               </p>
-              <p className="text-xs text-slate-600 leading-relaxed pt-1">
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed pt-1">
                 Aim for relevant secondary school stream preparation and plan for designated qualifying entrance examinations.
               </p>
             </div>
 
-            <div className="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-2">
-              <div className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
-                <Briefcase className="w-4 h-4 text-brand-800" />
+            <div className="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-xl border border-slate-200 dark:border-slate-700/80 space-y-2">
+              <div className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <Briefcase className="w-4 h-4 text-brand-700 dark:text-brand-400" />
                 <span>Priority Skills to Develop</span>
               </div>
               <div className="flex flex-wrap gap-1.5 pt-1">
                 {topCareer.skillsToDevelop.map((skill, i) => (
                   <span
                     key={i}
-                    className="bg-white text-slate-800 border border-slate-200 px-2.5 py-1 rounded text-xs font-medium"
+                    className="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 px-2.5 py-1 rounded text-xs font-medium"
                   >
                     {skill}
                   </span>
@@ -236,14 +236,14 @@ export default function AssessmentPage() {
           </div>
 
           {/* Actionable Next Steps */}
-          <div className="bg-white p-5 rounded-xl border border-slate-200 space-y-3">
-            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">
+          <div className="bg-white/90 dark:bg-slate-900/85 p-5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-3">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Recommended Next Action Steps
             </h3>
             <div className="space-y-2">
               {topCareer.nextSteps.map((step, i) => (
-                <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                  <span className="w-5 h-5 rounded-full bg-brand-50 text-brand-900 font-bold text-xs flex items-center justify-center shrink-0 border border-brand-200">
+                <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                  <span className="w-5 h-5 rounded-full bg-brand-50 dark:bg-brand-950/80 text-brand-900 dark:text-brand-300 font-bold text-xs flex items-center justify-center shrink-0 border border-brand-200 dark:border-brand-700/60">
                     {i + 1}
                   </span>
                   <span>{step}</span>
@@ -256,43 +256,43 @@ export default function AssessmentPage() {
 
         {/* Secondary Matched Pathways */}
         <div className="space-y-4">
-          <h2 className="text-xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
             Alternative High-Compatibility Careers
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {secondaryCareers.map((sec) => (
               <div
                 key={sec.careerId}
-                className="bg-white p-5 rounded-xl border border-slate-200 hover:border-slate-300 transition-all flex flex-col justify-between space-y-4"
+                className="bg-white/90 dark:bg-slate-900/85 backdrop-blur-sm p-5 rounded-xl border border-slate-200/90 dark:border-slate-800 hover:border-brand-300 dark:hover:border-brand-500/50 transition-all flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-semibold text-slate-500 uppercase">
+                    <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase">
                       {sec.category}
                     </span>
-                    <span className="text-xs font-extrabold text-brand-800 bg-brand-50 px-2 py-0.5 rounded border border-brand-200">
+                    <span className="text-xs font-extrabold text-brand-800 dark:text-brand-300 bg-brand-50 dark:bg-brand-950/80 px-2 py-0.5 rounded border border-brand-200 dark:border-brand-700/60">
                       {sec.matchPercentage}% Match
                     </span>
                   </div>
-                  <h3 className="text-base font-bold text-slate-900">
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white">
                     {sec.careerTitle}
                   </h3>
-                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
                     {sec.matchReasons[0]}
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+                <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
                   <Link
                     href={`/careers/${sec.careerId}`}
-                    className="font-bold text-brand-900 hover:text-brand-700 inline-flex items-center gap-1"
+                    className="font-bold text-brand-900 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 inline-flex items-center gap-1"
                   >
                     <span>View Pathway</span>
                     <ArrowRight className="w-3 h-3" />
                   </Link>
                   <Link
                     href={`/compare?careers=${topCareer.careerId},${sec.careerId}`}
-                    className="text-slate-500 hover:text-slate-800"
+                    className="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white"
                   >
                     Compare
                   </Link>
@@ -303,18 +303,18 @@ export default function AssessmentPage() {
         </div>
 
         {/* Advisor Help Box */}
-        <div className="no-print bg-slate-100 border border-slate-200 rounded-xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="no-print bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-sm border border-slate-200 dark:border-slate-800 rounded-xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
-            <h3 className="text-sm font-bold text-slate-900">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Need personalized interpretation of your results?
             </h3>
-            <p className="text-xs text-slate-600">
+            <p className="text-xs text-slate-600 dark:text-slate-300">
               Our guidance counselor can answer specific questions about choosing between your top matches.
             </p>
           </div>
           <Link
             href={`/guidance?query=I took the assessment and matched with ${topCareer.careerTitle}. What should be my next step?`}
-            className="shrink-0 bg-brand-900 text-white hover:bg-brand-800 font-bold text-xs px-4 py-2.5 rounded-lg shadow-sm transition-colors"
+            className="shrink-0 bg-brand-900 dark:bg-brand-600 text-white hover:bg-brand-800 dark:hover:bg-brand-500 font-bold text-xs px-4 py-2.5 rounded-lg shadow-sm transition-colors"
           >
             Ask Guidance Counselor
           </Link>
@@ -330,44 +330,44 @@ export default function AssessmentPage() {
       
       {/* Assessment Introduction Header */}
       <div className="space-y-2 text-center max-w-xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-50 text-brand-900 text-xs font-semibold border border-brand-200">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-50 dark:bg-brand-950/70 text-brand-900 dark:text-brand-300 text-xs font-semibold border border-brand-200 dark:border-brand-700/50">
           <CheckSquare className="w-3.5 h-3.5" />
           <span>Professional Aptitude Evaluation</span>
         </div>
-        <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+        <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           Career Fit Assessment
         </h1>
-        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           Answer 8 core dimensions regarding your academic preferences, thinking style, stress tolerance, and long-term values.
         </p>
       </div>
 
       {/* Progress Bar & Counter */}
-      <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-subtle space-y-2">
-        <div className="flex items-center justify-between text-xs font-semibold text-slate-600">
+      <div className="bg-white/90 dark:bg-slate-900/85 backdrop-blur-sm rounded-xl border border-slate-200/90 dark:border-slate-800 p-4 shadow-subtle space-y-2">
+        <div className="flex items-center justify-between text-xs font-semibold text-slate-600 dark:text-slate-300">
           <span>
             Question {currentStepIndex + 1} of {totalQuestions}
           </span>
-          <span className="text-brand-900">
+          <span className="text-brand-700 dark:text-brand-400">
             Dimension: {currentQuestion.dimension}
           </span>
         </div>
-        <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden border border-slate-200">
+        <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden border border-slate-200 dark:border-slate-700">
           <div
-            className="bg-brand-900 h-full transition-all duration-300 rounded-full"
+            className="bg-brand-900 dark:bg-brand-500 h-full transition-all duration-300 rounded-full"
             style={{ width: `${((currentStepIndex + 1) / totalQuestions) * 100}%` }}
           ></div>
         </div>
       </div>
 
       {/* Question Card */}
-      <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+      <div className="bg-white/90 dark:bg-slate-900/85 backdrop-blur-md rounded-2xl border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         
         <div className="space-y-1.5">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug">
             {currentQuestion.question}
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
             {currentQuestion.subtitle}
           </p>
         </div>
@@ -382,24 +382,24 @@ export default function AssessmentPage() {
                 onClick={() => handleOptionSelect(idx)}
                 className={`w-full text-left p-4 rounded-xl border transition-all flex items-start gap-3.5 ${
                   isSelected
-                    ? 'border-brand-900 bg-brand-50/60 ring-2 ring-brand-900/20 shadow-subtle'
-                    : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50/60'
+                    ? 'border-brand-900 dark:border-brand-400 bg-brand-50/60 dark:bg-brand-950/60 ring-2 ring-brand-900/20 dark:ring-brand-500/20 shadow-subtle'
+                    : 'border-slate-200 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50/60 dark:hover:bg-slate-800/60'
                 }`}
               >
                 {/* Radio Indicator */}
                 <div className={`w-5 h-5 rounded-full border shrink-0 mt-0.5 flex items-center justify-center transition-colors ${
                   isSelected
-                    ? 'border-brand-900 bg-brand-900 text-white'
-                    : 'border-slate-300 bg-white'
+                    ? 'border-brand-900 dark:border-brand-400 bg-brand-900 dark:bg-brand-500 text-white'
+                    : 'border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800'
                 }`}>
                   {isSelected && <div className="w-2 h-2 rounded-full bg-white"></div>}
                 </div>
 
                 <div className="space-y-0.5">
-                  <div className={`text-sm font-bold ${isSelected ? 'text-brand-950' : 'text-slate-900'}`}>
+                  <div className={`text-sm font-bold ${isSelected ? 'text-brand-950 dark:text-brand-200' : 'text-slate-900 dark:text-white'}`}>
                     {option.label}
                   </div>
-                  <p className="text-xs text-slate-500 leading-relaxed">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                     {option.description}
                   </p>
                 </div>
@@ -409,14 +409,14 @@ export default function AssessmentPage() {
         </div>
 
         {/* Bottom Navigation Buttons */}
-        <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
+        <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-4">
           <button
             onClick={handlePrevious}
             disabled={currentStepIndex === 0}
             className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold transition-colors ${
               currentStepIndex === 0
-                ? 'text-slate-300 cursor-not-allowed'
-                : 'text-slate-700 hover:bg-slate-100'
+                ? 'text-slate-300 dark:text-slate-600 cursor-not-allowed'
+                : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
             }`}
           >
             <ArrowLeft className="w-4 h-4" />
@@ -428,8 +428,8 @@ export default function AssessmentPage() {
             disabled={!isCurrentAnswered}
             className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-xs font-bold transition-all shadow-sm ${
               isCurrentAnswered
-                ? 'bg-brand-900 hover:bg-brand-800 text-white cursor-pointer'
-                : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                ? 'bg-brand-900 dark:bg-brand-600 hover:bg-brand-800 dark:hover:bg-brand-500 text-white cursor-pointer'
+                : 'bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-600 cursor-not-allowed'
             }`}
           >
             <span>{isLastQuestion ? 'Generate Assessment Report' : 'Next Question'}</span>

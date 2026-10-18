@@ -15,6 +15,44 @@ export interface GuidanceResponse {
 export function generateGuidanceCounselorResponse(query: string): GuidanceResponse {
   const q = query.toLowerCase().trim();
 
+  // 0. Admission Documents & Counseling Certificates Query
+  if (q.includes('document') || q.includes('documents') || q.includes('admission') || q.includes('counseling') || q.includes('affidavit') || q.includes('certificate') || q.includes('dastawej') || q.includes('kya document')) {
+    const matched = CAREERS.slice(0, 4);
+    return {
+      answer: `College admissions and counseling reporting (JoSAA, NEET/MCC, CLAT, UPSC, etc.) require a structured set of verified physical documents:
+
+1. **Mandatory Academic Dossier:**
+   • **10th Board Certificate & Marksheet:** Essential legal proof of candidate Date of Birth (DOB) and parent name spellings.
+   • **12th Board Marksheet & Passing Certificate:** Confirms qualifying marks in mandatory subjects (PCM, PCB, etc.).
+   • **School Leaving Certificate (TC/SLC) & Migration Certificate:** Universities keep the original TC permanently.
+   • **Character / Conduct Certificate:** Issued by the head of the institution last attended.
+
+2. **Entrance & Allotment Dossier:**
+   • Original Admit Card with candidate photo.
+   • Official Rank / Scorecard (AIR & Category Rank).
+   • Provisional Seat Allotment Letter (JoSAA / MCC / State Portal).
+   • Seat Acceptance Fee payment receipt.
+
+3. **Identity & Quota Verification:**
+   • Aadhaar Card (Must have active phone number for biometric e-KYC).
+   • Domicile / Permanent Residence Certificate for state quota seats.
+   • Category Certificate (SC/ST/OBC-NCL/EWS) in **Central Government Format**. Note: OBC-NCL and EWS must be issued on or after April 1 of the admission academic year!
+
+4. **Medical & Affidavits:**
+   • Physical Fitness Certificate by a registered medical practitioner.
+   • Gap Year Affidavit on non-judicial stamp paper if you took a drop year.
+   • Anti-Ragging undertaking signed by student and parents (via antiragging.in).
+
+👉 **Interactive Tool:** We have built a dedicated **Admission Documents Portal** where you can select any career pathway, filter requirements, check off items, and print your physical counseling checklist! Visit **/documents** in the navigation menu.`,
+      matchedCareers: matched.map(c => ({ id: c.id, title: c.title, category: c.category, shortIntro: c.shortIntro })),
+      followUpSuggestions: [
+        'What documents are needed for JoSAA engineering counseling?',
+        'What is a Gap Year Affidavit and how do I make one?',
+        'What is the validity rule for OBC-NCL and EWS certificates?'
+      ]
+    };
+  }
+
   // 1. Math & Computers
   if ((q.includes('math') || q.includes('mathematics')) && (q.includes('computer') || q.includes('coding') || q.includes('software'))) {
     const matched = CAREERS.filter(c => ['software-engineer', 'data-scientist', 'ai-ml-engineer', 'web-developer'].includes(c.id));

@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { Compass, ShieldCheck, Mail, GraduationCap } from 'lucide-react';
+import { Orbit, ShieldCheck, Mail, GraduationCap } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300 border-t border-slate-800 pt-14 pb-12">
+    <footer className="bg-slate-900 dark:bg-[#070B14]/90 backdrop-blur-md text-slate-300 border-t border-slate-800 dark:border-slate-800/80 pt-14 pb-12 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 pb-12 border-b border-slate-800">
           
@@ -12,10 +12,10 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/30">
-                <Compass className="w-5 h-5" />
+                <Orbit className="w-5 h-5" />
               </div>
               <span className="text-xl font-bold text-white tracking-tight">
-                Career<span className="text-amber-400">Compass</span>
+                Career<span className="text-amber-400">Orbit</span>
               </span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
@@ -73,6 +73,11 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link href="/documents" className="text-slate-400 hover:text-white transition-colors">
+                  Admission Documents Checklist
+                </Link>
+              </li>
+              <li>
                 <Link href="/assessment" className="text-slate-400 hover:text-white transition-colors">
                   Career Aptitude Assessment
                 </Link>
@@ -124,7 +129,7 @@ export default function Footer() {
         {/* Bottom Disclaimers */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
-            © {new Date().getFullYear()} CareerCompass Educational Foundation. Built for students, educators, and counselors.
+            © {new Date().getFullYear()} CareerOrbit Educational Foundation. Built for students, educators, and counselors.
           </p>
           <p className="max-w-md text-center md:text-right">
             Disclaimer: Salary ranges and entrance cutoffs reflect typical historical ranges and are not guarantees of future employment.
