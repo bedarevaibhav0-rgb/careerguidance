@@ -60,11 +60,11 @@ export default function CareerDetailPage() {
   if (!career) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center space-y-4">
-        <h1 className="text-2xl font-bold text-slate-900">Career Profile Not Found</h1>
-        <p className="text-slate-500">The career you are looking for does not exist in our directory.</p>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Career Profile Not Found</h1>
+        <p className="text-slate-500 dark:text-slate-400">The career you are looking for does not exist in our directory.</p>
         <Link 
           href="/careers" 
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-900 text-white font-semibold text-sm"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-900 dark:bg-brand-600 text-white font-semibold text-sm hover:bg-brand-800 dark:hover:bg-brand-500 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to All Careers</span>

@@ -47,6 +47,10 @@ const config: Config = {
         'orbit-reverse': 'orbitSpinReverse 75s linear infinite',
         'float-slow': 'floatGentle 8s ease-in-out infinite',
         'pulse-subtle': 'pulseSubtle 5s ease-in-out infinite',
+        'vortex-spin': 'vortexSpin 14s linear infinite',
+        'vortex-reverse': 'vortexReverse 18s linear infinite',
+        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+        'scanline': 'scanline 5s linear infinite',
       },
       keyframes: {
         orbitSpin: {
@@ -57,6 +61,14 @@ const config: Config = {
           'from': { transform: 'rotate(360deg)' },
           'to': { transform: 'rotate(0deg)' },
         },
+        vortexSpin: {
+          'from': { transform: 'rotate(0deg)' },
+          'to': { transform: 'rotate(360deg)' },
+        },
+        vortexReverse: {
+          'from': { transform: 'rotate(360deg)' },
+          'to': { transform: 'rotate(0deg)' },
+        },
         floatGentle: {
           '0%, 100%': { transform: 'translateY(0px) scale(1)' },
           '50%': { transform: 'translateY(-12px) scale(1.03)' },
@@ -64,6 +76,14 @@ const config: Config = {
         pulseSubtle: {
           '0%, 100%': { opacity: '0.4' },
           '50%': { opacity: '0.85' },
+        },
+        pulseGlow: {
+          '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.04)' },
+        },
+        scanline: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(1000%)' },
         },
       },
     },

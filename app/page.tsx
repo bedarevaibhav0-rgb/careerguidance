@@ -13,20 +13,27 @@ import {
   Scale, 
   GitFork, 
   ShieldCheck, 
-  Sparkles,
-  Users,
-  ChevronRight,
-  TrendingUp,
-  Award
+  Sparkles, 
+  Users, 
+  ChevronRight, 
+  TrendingUp, 
+  Award,
+  Cpu,
+  Stethoscope,
+  Compass,
+  FileCheck,
+  CheckSquare
 } from 'lucide-react';
 import { CAREERS, CATEGORIES } from '@/lib/careers-data';
 import CareerCard from '@/components/careers/CareerCard';
 import CompareDrawer from '@/components/careers/CompareDrawer';
+import HeroStargate from '@/components/portals/HeroStargate';
+import CosmicPortals from '@/components/portals/CosmicPortals';
 
 export default function HomePage() {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All Categories');
+  const [selectedCategoryTab, setSelectedCategoryTab] = useState('All Categories');
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,7 +52,7 @@ export default function HomePage() {
   return (
     <div className="space-y-16 lg:space-y-24 pb-20">
       
-      {/* 1. HERO SECTION */}
+      {/* 1. HERO SECTION WITH QUANTUM STARGATE CONSOLE */}
       <section className="relative pt-8 pb-12 sm:pt-14 sm:pb-16 bg-gradient-to-b from-brand-50/40 via-transparent to-transparent dark:from-brand-950/20 dark:via-transparent dark:to-transparent border-b border-slate-200/80 dark:border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -53,35 +60,35 @@ export default function HomePage() {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100/70 dark:bg-brand-950/80 border border-brand-200/80 dark:border-brand-700/60 text-brand-900 dark:text-brand-300 text-xs font-semibold tracking-wide">
-                <span className="w-2 h-2 rounded-full bg-brand-600 dark:bg-brand-400 animate-pulse"></span>
-                <span>Verified Higher Education & Career Directory</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 dark:bg-cyan-950/60 border border-cyan-500/30 text-cyan-800 dark:text-cyan-300 text-xs font-semibold tracking-wide shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 animate-ping"></span>
+                <span>Verified Dimensional Career Directory</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.12]">
-                Find the Career That <span className="text-brand-700 dark:text-brand-400">Fits You.</span>
+                Find the Career That <span className="bg-gradient-to-r from-cyan-600 via-brand-600 to-amber-500 dark:from-cyan-400 dark:via-sky-300 dark:to-amber-400 bg-clip-text text-transparent">Fits You.</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
-                Explore career options, understand what they require, and create a clear path toward your future.
+                Explore dimensional pathways, step through verified career portals, and plan every milestone from high school to your dream profession.
               </p>
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <Link
-                  href="/careers"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-base font-semibold text-white bg-brand-900 dark:bg-brand-600 hover:bg-brand-800 dark:hover:bg-brand-500 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-900"
+                  href="/#career-portals"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl text-base font-semibold text-white bg-slate-900 dark:bg-brand-600 hover:bg-slate-800 dark:hover:bg-brand-500 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 group"
                 >
-                  <BookOpen className="w-5 h-5 text-amber-400" />
-                  <span>Explore Careers</span>
+                  <Orbit className="w-5 h-5 text-amber-400 group-hover:rotate-45 transition-transform" />
+                  <span>Enter Career Portals</span>
                 </Link>
 
                 <Link
                   href="/assessment"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 bg-white/90 dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-900 backdrop-blur-sm"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl text-base font-semibold text-slate-800 dark:text-slate-200 bg-white/90 dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-900 backdrop-blur-md"
                 >
-                  <Sparkles className="w-5 h-5 text-brand-600 dark:text-brand-400" />
-                  <span>Take Career Assessment</span>
+                  <Sparkles className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
+                  <span>Take Aptitude Assessment</span>
                 </Link>
               </div>
 
@@ -89,7 +96,7 @@ export default function HomePage() {
               <div className="pt-4 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-500 dark:text-slate-400 font-medium">
                 <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                  <span>20 Complete Career Pathways</span>
+                  <span>20 Dimensional Portals</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500" />
@@ -103,54 +110,40 @@ export default function HomePage() {
 
             </div>
 
-            {/* Right Photography: Authentic student exploring career options */}
+            {/* Right: Quantum Stargate Hologram Console */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden shadow-card border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900">
-                <img
-                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80"
-                  alt="Real college students collaborating in a modern university library"
-                  className="w-full h-80 sm:h-96 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent flex flex-col justify-end p-5 text-white">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-amber-300 mb-1">
-                    <GraduationCap className="w-4 h-4" />
-                    <span>Evidence-Based Decision Making</span>
-                  </div>
-                  <p className="text-sm font-medium text-slate-100 leading-snug">
-                    Compare required years of study, real salary bands, and daily responsibilities before picking your college major.
-                  </p>
-                </div>
-              </div>
+              <HeroStargate />
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* 2. INSTANT SEARCH & CATEGORY SELECTOR (IMMEDIATE PRACTICAL UTILITY) */}
+      {/* 2. DIMENSIONAL SECTOR SEARCH DECK WITH UPPER LINE CHANNEL TABS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white/90 dark:bg-slate-900/85 backdrop-blur-md rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm p-6 sm:p-8 space-y-6">
+        <div className="bg-white/90 dark:bg-slate-900/85 backdrop-blur-md rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-sm p-6 sm:p-8 space-y-6">
           
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
+              <div className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400 mb-1 flex items-center gap-1.5">
+                <Compass className="w-3.5 h-3.5" />
+                <span>FREQUENCY DECK // 14 SECTORS</span>
+              </div>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-                Search & Filter by Industry Discipline
+                Filter by Industry Cadre
               </h2>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                Find exactly what interests you among 14 recognized professional sectors.
-              </p>
             </div>
 
-            {/* Search Input */}
-            <form onSubmit={handleSearchSubmit} className="w-full md:w-80 flex items-center relative">
+            {/* Futuristic Search Input */}
+            <form onSubmit={handleSearchSubmit} className="w-full md:w-80 flex items-center relative group">
               <input
                 type="text"
-                placeholder="Search careers, skills, or exams..."
+                placeholder="Search careers, skills, or entrance exams..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800/90 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800/90 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all shadow-inner"
               />
-              <Search className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute left-3.5 pointer-events-none" />
+              <Search className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute left-3.5 pointer-events-none group-focus-within:text-cyan-500 transition-colors" />
               <button
                 type="submit"
                 className="hidden"
@@ -160,15 +153,21 @@ export default function HomePage() {
             </form>
           </div>
 
-          {/* 14 Category Pills */}
-          <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-100 dark:border-slate-800/80">
+          {/* Upper Line Category Channel Tabs */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none border-t border-slate-100 dark:border-slate-800/80 pt-4">
             {CATEGORIES.map((category) => {
               const isAll = category === 'All Categories';
+              const isSelected = selectedCategoryTab === category;
               return (
                 <Link
                   key={category}
                   href={isAll ? '/careers' : `/careers?category=${encodeURIComponent(category)}`}
-                  className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 dark:bg-slate-800/80 hover:bg-brand-50 dark:hover:bg-brand-950/70 text-slate-700 dark:text-slate-300 hover:text-brand-900 dark:hover:text-brand-300 border border-slate-200/80 dark:border-slate-700/80 hover:border-brand-200 dark:hover:border-brand-700/60 transition-colors"
+                  onClick={() => setSelectedCategoryTab(category)}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-300 border ${
+                    isSelected
+                      ? 'bg-slate-900 dark:bg-brand-600 text-white border-slate-900 dark:border-brand-500 shadow-sm scale-102'
+                      : 'bg-slate-50 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 hover:text-brand-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 border-slate-200/80 dark:border-slate-700/80'
+                  }`}
                 >
                   {category}
                 </Link>
@@ -179,12 +178,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. FEATURED CAREER PATHWAYS (VARIOUS DISCIPLINES) */}
+      {/* 3. COSMIC CAREER PORTALS (INTERACTIVE MULTIVERSE DIMENSIONS WITH IMAGES & UPPER TABS) */}
+      <CosmicPortals />
+
+      {/* 4. FEATURED CAREER PATHWAYS (UPGRADED PORTAL-STYLE CARDS) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-brand-700 dark:text-brand-400 mb-1">
-              Curated Profiles
+            <div className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400 mb-1 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>CURATED DOSSIERS</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Featured High-Opportunity Pathways
@@ -195,26 +198,29 @@ export default function HomePage() {
           </div>
           <Link
             href="/careers"
-            className="inline-flex items-center gap-1 text-sm font-bold text-brand-900 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 self-start sm:self-auto"
+            className="inline-flex items-center gap-1 text-sm font-bold text-cyan-700 dark:text-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-300 self-start sm:self-auto group"
           >
-            <span>View All 20 Careers</span>
-            <ChevronRight className="w-4 h-4" />
+            <span>View All 20 Career Portals</span>
+            <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
-        {/* Varied Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Varied Grid Layout with Upgraded Portal Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {featuredCareers.map((career) => (
             <CareerCard key={career.id} career={career} />
           ))}
         </div>
       </section>
 
-      {/* 4. HOW THIS PLATFORM WORKS (CLEAR 4-STEP FRAMEWORK) */}
+      {/* 5. PORTAL PROTOCOL SEQUENCE (HOW THIS PLATFORM WORKS) */}
       <section className="bg-slate-100/60 dark:bg-slate-900/50 backdrop-blur-sm border-y border-slate-200/80 dark:border-slate-800/80 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold text-cyan-600 dark:text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 mb-3">
+              <span>SYSTEM PROTOCOL SEQUENCE</span>
+            </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               A Methodical Process to Choose Your Life’s Work
             </h2>
@@ -225,10 +231,10 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            {/* Step 1 */}
-            <div className="bg-white/95 dark:bg-slate-900/90 p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-subtle flex flex-col justify-between backdrop-blur-sm hover:border-brand-300 dark:hover:border-brand-500/50 transition-colors">
+            {/* Protocol 01 */}
+            <div className="bg-white/95 dark:bg-slate-900/90 p-6 rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-subtle flex flex-col justify-between backdrop-blur-md hover:border-cyan-400/60 dark:hover:border-cyan-400/50 transition-all duration-300 group">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950/80 text-brand-900 dark:text-brand-300 font-bold flex items-center justify-center mb-4 text-sm border border-brand-200 dark:border-brand-700/50">
+                <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/80 text-cyan-800 dark:text-cyan-300 font-mono font-bold flex items-center justify-center mb-4 text-base border border-cyan-200 dark:border-cyan-700/60 shadow-sm group-hover:scale-105 transition-transform">
                   01
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -239,38 +245,38 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-                <Link href="/assessment" className="text-xs font-semibold text-brand-900 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 inline-flex items-center gap-1">
+                <Link href="/assessment" className="text-xs font-semibold text-cyan-700 dark:text-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-300 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                   <span>Start Aptitude Test</span>
                   <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             </div>
 
-            {/* Step 2 */}
-            <div className="bg-white/95 dark:bg-slate-900/90 p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-subtle flex flex-col justify-between backdrop-blur-sm hover:border-brand-300 dark:hover:border-brand-500/50 transition-colors">
+            {/* Protocol 02 */}
+            <div className="bg-white/95 dark:bg-slate-900/90 p-6 rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-subtle flex flex-col justify-between backdrop-blur-md hover:border-cyan-400/60 dark:hover:border-cyan-400/50 transition-all duration-300 group">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950/80 text-brand-900 dark:text-brand-300 font-bold flex items-center justify-center mb-4 text-sm border border-brand-200 dark:border-brand-700/50">
+                <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/80 text-cyan-800 dark:text-cyan-300 font-mono font-bold flex items-center justify-center mb-4 text-base border border-cyan-200 dark:border-cyan-700/60 shadow-sm group-hover:scale-105 transition-transform">
                   02
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-                  Explore In-Depth Profiles
+                  Inspect Dimensional Profiles
                 </h3>
                 <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                   Read day-in-the-life realities, core daily duties, required higher secondary streams, and qualifying competitive examinations.
                 </p>
               </div>
               <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-                <Link href="/careers" className="text-xs font-semibold text-brand-900 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 inline-flex items-center gap-1">
+                <Link href="/careers" className="text-xs font-semibold text-cyan-700 dark:text-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-300 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                   <span>Browse Directory</span>
                   <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             </div>
 
-            {/* Step 3 */}
-            <div className="bg-white/95 dark:bg-slate-900/90 p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-subtle flex flex-col justify-between backdrop-blur-sm hover:border-brand-300 dark:hover:border-brand-500/50 transition-colors">
+            {/* Protocol 03 */}
+            <div className="bg-white/95 dark:bg-slate-900/90 p-6 rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-subtle flex flex-col justify-between backdrop-blur-md hover:border-cyan-400/60 dark:hover:border-cyan-400/50 transition-all duration-300 group">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950/80 text-brand-900 dark:text-brand-300 font-bold flex items-center justify-center mb-4 text-sm border border-brand-200 dark:border-brand-700/50">
+                <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/80 text-cyan-800 dark:text-cyan-300 font-mono font-bold flex items-center justify-center mb-4 text-base border border-cyan-200 dark:border-cyan-700/60 shadow-sm group-hover:scale-105 transition-transform">
                   03
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -281,17 +287,17 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-                <Link href="/compare" className="text-xs font-semibold text-brand-900 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 inline-flex items-center gap-1">
+                <Link href="/compare" className="text-xs font-semibold text-cyan-700 dark:text-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-300 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                   <span>Open Comparison Tool</span>
                   <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             </div>
 
-            {/* Step 4 */}
-            <div className="bg-white/95 dark:bg-slate-900/90 p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-subtle flex flex-col justify-between backdrop-blur-sm hover:border-brand-300 dark:hover:border-brand-500/50 transition-colors">
+            {/* Protocol 04 */}
+            <div className="bg-white/95 dark:bg-slate-900/90 p-6 rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-subtle flex flex-col justify-between backdrop-blur-md hover:border-cyan-400/60 dark:hover:border-cyan-400/50 transition-all duration-300 group">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950/80 text-brand-900 dark:text-brand-300 font-bold flex items-center justify-center mb-4 text-sm border border-brand-200 dark:border-brand-700/50">
+                <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/80 text-cyan-800 dark:text-cyan-300 font-mono font-bold flex items-center justify-center mb-4 text-base border border-cyan-200 dark:border-cyan-700/60 shadow-sm group-hover:scale-105 transition-transform">
                   04
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
@@ -302,7 +308,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-                <Link href="/roadmaps" className="text-xs font-semibold text-brand-900 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 inline-flex items-center gap-1">
+                <Link href="/roadmaps" className="text-xs font-semibold text-cyan-700 dark:text-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-300 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                   <span>View Roadmaps</span>
                   <ArrowRight className="w-3 h-3" />
                 </Link>
@@ -314,18 +320,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. EDUCATIONAL ADVISOR CALLOUT SECTION */}
+      {/* 6. EDUCATIONAL ADVISOR CALLOUT SECTION (ORACLE PORTAL) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-brand-900 dark:bg-[#0B1426] border border-brand-800/80 dark:border-brand-700/50 text-white rounded-2xl p-8 sm:p-12 shadow-elevated relative overflow-hidden">
-          {/* Subtle cosmic glow effect inside card */}
-          <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-brand-500/20 dark:bg-brand-500/30 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-amber-500/15 blur-3xl pointer-events-none" />
+        <div className="bg-slate-950 dark:bg-[#070C18] border border-cyan-500/30 text-white rounded-3xl p-8 sm:p-12 shadow-[0_10px_40px_rgba(56,189,248,0.15)] relative overflow-hidden">
+          
+          {/* Swirling Portal Atmosphere */}
+          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-cyan-500/20 blur-3xl pointer-events-none animate-pulse-glow" />
+          <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-amber-500/15 blur-3xl pointer-events-none" />
 
           <div className="max-w-2xl relative z-10 space-y-4">
             
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-800 dark:bg-brand-900/80 text-amber-300 text-xs font-semibold border border-brand-700 dark:border-brand-600/50">
-              <Orbit className="w-3.5 h-3.5" />
-              <span>Personalized Guidance Counselor</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/90 text-amber-300 text-xs font-mono font-semibold border border-amber-400/30">
+              <Orbit className="w-3.5 h-3.5 text-amber-400 animate-spin-slow" />
+              <span>THE QUANTUM COUNSELOR ORACLE</span>
             </div>
 
             <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -339,7 +346,7 @@ export default function HomePage() {
             <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <Link
                 href="/guidance"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 shadow transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 shadow-md hover:shadow-lg transition-all"
               >
                 <span>Ask the Educational Advisor</span>
                 <ArrowRight className="w-4 h-4" />
@@ -353,11 +360,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. COMPARISON TEASER SECTION */}
+      {/* 7. COMPARISON TEASER SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white/90 dark:bg-slate-900/85 backdrop-blur-md rounded-2xl border border-slate-200/90 dark:border-slate-800 p-6 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="bg-white/90 dark:bg-slate-900/85 backdrop-blur-md rounded-3xl border border-slate-200/90 dark:border-slate-800 p-6 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="space-y-3 max-w-xl">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider">
               <Scale className="w-4 h-4" />
               <span>Head-to-Head Comparison</span>
             </div>
@@ -371,7 +378,7 @@ export default function HomePage() {
           <div className="shrink-0">
             <Link
               href="/compare?careers=software-engineer,data-scientist"
-              className="inline-flex items-center gap-2 bg-slate-900 dark:bg-brand-600 hover:bg-slate-800 dark:hover:bg-brand-500 text-white font-semibold text-sm px-6 py-3.5 rounded-xl shadow-sm transition-colors"
+              className="inline-flex items-center gap-2 bg-slate-900 dark:bg-brand-600 hover:bg-slate-800 dark:hover:bg-brand-500 text-white font-semibold text-sm px-6 py-3.5 rounded-2xl shadow-sm transition-colors"
             >
               <span>Compare Popular Pathways</span>
               <ArrowRight className="w-4 h-4" />
